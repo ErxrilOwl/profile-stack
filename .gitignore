@@ -1,0 +1,15 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
+
+/sailjs-api/node_modules/
+/sailjs-api/config/local.js
+*.log
+*.out
+*.pid
+npm-debug.log
+CONSTANTS.js
