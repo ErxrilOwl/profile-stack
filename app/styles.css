@@ -1,5 +1,5 @@
 /* app css stylesheet */
-
+/*
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -27,4 +27,15 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+*/
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
