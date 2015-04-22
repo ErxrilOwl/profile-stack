@@ -45,11 +45,12 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input placeholder="Email" id="email_sender" type="email" class="validate">
+                        <input id="email_sender" type="email" class="validate">
+                        <label for="email_sender">Email</label>
                     </div>
                     <div class="input-field col s6">
-
-                        <input placeholder="Subject" id="email_subject" type="text" class="validate">
+                        <input id="email_subject" type="text" class="validate">
+                        <label for="email_subject">Subject</label>
                     </div>
                 </div>
 
@@ -58,7 +59,8 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="mdi-editor-mode-edit prefix"></i>
-                                <textarea placeholder="Message" id="email_message" class="materialize-textarea"></textarea>
+                                <textarea id="email_message" class="materialize-textarea validate"></textarea>
+                                <label for="email_message">Message</label>
                             </div>
                         </div>
                     </form>

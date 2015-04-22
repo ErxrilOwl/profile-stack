@@ -39,3 +39,46 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+a {
+  color: black;
+}
+
+.visible-link {
+  color: #039be5;
+}
+
+
+/* -- Form CSS Overrides -- */
+
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #6a1b9a;
+}
+.input-field input[type=email]:focus + label {
+  color: #6a1b9a;
+}
+#email_message:focus + label {
+  color: #6a1b9a;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #6a1b9a;
+  box-shadow: 0 1px 0 0 #6a1b9a;
+}
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #6a1b9a;
+  box-shadow: 0 1px 0 0 #6a1b9a;
+}
+#email_message:focus {
+  border-bottom: 1px solid #6a1b9a;
+  box-shadow: 0 1px 0 0 #6a1b9a;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+
+/* -- End Form CSS Overrides -- */
