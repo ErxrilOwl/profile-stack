@@ -1,5 +1,5 @@
 /**
-* Project.js
+* Link.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,27 +8,19 @@
 module.exports = {
 
   attributes: {
-    user:{
-      model: 'user'
+    project: {
+      model: 'project'
     },
-    title: {
+    name: {
       type: 'string',
       required: true
     },
-    date:{
-      type: 'date',
+    url: {
+      type: 'string',
       required: true
     },
     description: {
-      type: 'string',
-      required: true
-    },
-    languages: {
-      type: 'array'
-    },
-    links : {
-      collection: 'link',
-      via: 'project'
+      type: 'string'
     }
   }
 };

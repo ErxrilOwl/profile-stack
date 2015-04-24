@@ -8,7 +8,21 @@
 module.exports = {
 
   attributes: {
-
+    author: {
+      model: 'user'
+    },
+    title: {
+      type: 'string',
+      required: true
+    },
+    date: {
+      type: 'datetime',
+      required: true
+    },
+    post: {
+      type: 'text',
+      required: true
+    }
   }
 };
 

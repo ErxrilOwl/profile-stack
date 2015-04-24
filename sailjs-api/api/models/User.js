@@ -8,10 +8,6 @@
 module.exports = {
 
   attributes : {
-    userid:{
-      type: 'integer',
-      autoIncrement: true
-    },
     username: {
       type: 'string',
       required: true
@@ -31,6 +27,14 @@ module.exports = {
     password: {
       type: 'string',
       required: true
+    },
+    projects: {
+      collection: 'project',
+      via: 'user'
+    },
+    blogs: {
+      collection: 'blog',
+      via: 'author'
     }
 
   }
