@@ -9,8 +9,8 @@ the project has the following dependencies:
 Each projects dependencies have to be done within the appropriate folder as most of them are local nodejs components
 
 To Setup Sailjs:
-1) cd to sailjs-api
-2) npm install sailjs -g
+ 1. cd to sailjs-api
+ 2. npm install sailjs -g
 
 To Setup Angularjs:
  1. cd to angularjs-client
