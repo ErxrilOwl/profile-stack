@@ -55,7 +55,7 @@ module.exports = {
     })
   },
   getRecentProjects: function(req, res){
-    Project.find({where: { user: req.params.userid}, limit: req.params.limit, sort: 'date DESC'}).exec(function(err, results){
+    Project.find({where: { user: req.params.userid}, limit: req.params.limit, sort: 'startdate DESC'}).populate('links').exec(function(err, results){
       if(err){
         return res.send(err);
       }else{

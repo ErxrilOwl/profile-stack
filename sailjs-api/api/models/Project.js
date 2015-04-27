@@ -15,9 +15,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-    date:{
+    startdate:{
       type: 'date',
       required: true
+    },
+    enddate: {
+      type: 'date',
     },
     description: {
       type: 'string',
@@ -25,6 +28,10 @@ module.exports = {
     },
     languages: {
       type: 'array'
+    },
+    imgurl: {
+      type: 'string',
+      required: true
     },
     links : {
       collection: 'link',

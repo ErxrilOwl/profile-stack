@@ -11,6 +11,10 @@ Each projects dependencies have to be done within the appropriate folder as most
 To Setup Sailjs:
  1. cd to sailjs-api
  2. npm install sailjs -g
+ 3. npm install
+ 4. You will also have to install mongoDB if you want to use the default setup. See mongoDB docs on howto
+ 5. If installing mongoDB, install the mongoDB adapter: npm install sails-mongo
+
 
 To Setup Angularjs:
  1. cd to angularjs-client
