@@ -20,10 +20,10 @@ module.exports = {
       required: true
     },
     enddate: {
-      type: 'date',
+      type: 'date'
     },
     description: {
-      type: 'string',
+      type: 'array',
       required: true
     },
     languages: {

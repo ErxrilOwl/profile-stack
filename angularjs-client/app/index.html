@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="components/font-awesome-4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" media="screen,projection">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animation.css">
   <!--<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>-->
 
 </head>
@@ -41,24 +42,43 @@
             <li><a href="#/blog">Blog</a></li>
             <li><a href="#/contact">Contact</a></li>
           </ul>
+          <ul id="slide-out" class="side-nav">
+              <li><a href="#/">Home</a></li>
+              <li><a href="#/about">About</a></li>
+              <li><a href="#/projects">Projects</a></li>
+              <li><a href="#/blog">Blog</a></li>
+              <li><a href="#/contact">Contact</a></li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
         </div>
 
       </div>
     </nav>
   </header>
 
-  <main>
-    <div ng-view></div>
-  </main>
+
+
+      <main>
+          <div ng-view></div>
+      </main>
+
+
 
 
   <footer class="page-footer purple darken-3">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Contact</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-          <p>This website is powered by Angular seed app: v<span app-version></span></p>
+        <div class="col s1 white-text">
+          <a style="color:white;" href="https://github.com/bensoer" target="_blank"><li class="fa-2x fa fa-github"></li></a>
+        </div>
+        <div class="col s1 white-text">
+          <a style="color:white;" href="https://ca.linkedin.com/pub/ben-soer/b0/541/24a" target="_blank"><li class="fa-2x fa fa-linkedin"></li></a>
+        </div>
+        <div class="col s1 white-text">
+          <a style="color:white;" href="https://plus.google.com/105397548157818804415/about" target="_blank"><li class="fa-2x fa fa-google-plus"></li></a>
+        </div>
+        <div class="col s1 white-text">
+          <a style="color:white;" href="https://twitter.com/BensPlaylist" target="_blank"><li class="fa-2x fa fa-twitter"></li></a>
         </div>
         <!--<div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
@@ -76,7 +96,8 @@
     <div class="footer-copyright">
       <div class="container">
         © 2015 Ben Soer
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <i class="grey-text text-lighten-4 right">Angularjs v1.3.15 | Sails v0.11.1 | MaterializeCSS v0.94.0 | Nodejs v0.12.2</i>
+        <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
 
       </div>
 
@@ -104,6 +125,7 @@
 <script src="projects/projectsController.js"></script>
 <script src="blog/blogController.js"></script>
 <script src="about/aboutController.js"></script>
+<script src="appController.js"></script>
 
 
 <script src="components/version/version.js"></script>
@@ -114,5 +136,17 @@
 
 <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
 <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+<script>
+
+
+    $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+    );
+
+</script>
 
 </html>

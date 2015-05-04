@@ -24,7 +24,10 @@
                                 <br><span class="grey-text text-darken-2">
                                 {{ formatLanguages(project.languages) }}
                             </span>
-                                <p>{{ project.description }}</p>
+                                <div ng-repeat="paragraph in project.description">
+                                    <p>{{ paragraph }}</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

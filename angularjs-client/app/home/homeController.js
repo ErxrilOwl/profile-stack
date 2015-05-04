@@ -11,6 +11,8 @@ angular.module('myApp.home', ['ngRoute'])
 
     .controller('homeController', ['$scope', '$http', function($scope, $http) {
 
+        $scope.displayHome = true;
+
         var onSuccess = function(response){
             $scope.projects = response.data;
         }
