@@ -1,37 +1,36 @@
 <div class="container">
-    <div class="row">
-        <div ng-repeat="project in projects">
-            <div class="col s12 m6">
+        <div ng-repeat="projectRow in projectsCollection">
 
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="{{ project.imgurl }}">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{ project.title }}<i class="mdi-navigation-more-vert right"></i></span>
-                        <div ng-repeat="link in project.links">
-                            <p><a class="visible-link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></p>
+            <div class="row">
+
+                <div ng-repeat="project in projectRow">
+
+                    <div class="col s12 m6">
+
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ project.imgurl }}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ project.title }}<i class="mdi-navigation-more-vert right"></i></span>
+                                <div ng-repeat="link in project.links">
+                                    <p><a class="visible-link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></p>
+                                </div>
+
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{ project.title }}<i class="mdi-navigation-close right"></i></span>
+                                <br><span class="grey-text text-darken-2">{{ project.startdate | date : 'longDate' }} - {{ (project.enddate | date : 'longDate') || 'Present' }}</span>
+                                <br><span class="grey-text text-darken-2">
+                                {{ formatLanguages(project.languages) }}
+                            </span>
+                                <p>{{ project.description }}</p>
+                            </div>
                         </div>
-
                     </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{ project.title }}<i class="mdi-navigation-close right"></i></span>
-                        <br><span class="grey-text text-darken-2">{{ project.startdate | date : 'longDate' }} - {{ (project.enddate | date : 'longData') || 'Present' }}</span>
-                        <br><span class="grey-text text-darken-2">
-                            {{ formatLanguages(project.languages) }}
-                        </span>
-                        <p>{{ project.description }}</p>
-                    </div>
-                </div>
-               <!-- <ul>
-                    <li>{{ project.title }}</li><br><br>
-                    <li>{{ project.description }}</li><br><br>
-                    <li>{{ project.date }}</li>
-                </ul>-->
-            </div>
-        </div>
+                </div> <!-- END OF INNER NG-REPEAT -->
 
+            </div> <!-- END OF ROW -->
 
-
-    </div>
+        </div> <!-- END OF OUTER NG-REPEAT -->
 </div>

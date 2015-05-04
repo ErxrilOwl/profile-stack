@@ -9,6 +9,7 @@ angular.module('myApp', [
   'myApp.contact',
   'myApp.projects',
   'myApp.blog',
+  'myApp.about',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
