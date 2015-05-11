@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="progress animate-show" ng-show="!showProjects">
+        <div class="indeterminate blue darken-3"></div>
+    </div>
+
+    <div ng-show="showProjects">
         <div ng-repeat="projectRow in projectsCollection">
 
             <div class="row">
@@ -36,4 +41,5 @@
             </div> <!-- END OF ROW -->
 
         </div> <!-- END OF OUTER NG-REPEAT -->
+    </div>
 </div>

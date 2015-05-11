@@ -6,18 +6,22 @@
     </div>
 
     <div class="row">
+
         <div class="col s12">
             <div class="card-panel">
                 <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                    </div>
+                    <!--<div class="col s2">
+                        <img src="images/yuna.jpg" alt="" class="circle responsive-img">
+                    </div>-->
                     <div class="col s1">
+
+                    </div>
+                    <div class="col s2">
                         <span class="black-text">
                             <p>Ben Soer</p><p><i class="tiny mdi-hardware-phone-android">604.842.2274</i></p><p><i class="tiny mdi-communication-email">ben@soernet.ca</i></p>
                         </span>
                     </div>
-                        <div class="col s4">
+                        <div class="col s3">
                         </div>
                         <div class="col s1">
                             <a style="color:black;" href="https://github.com/bensoer" target="_blank"><li class="fa-3x fa fa-github"></li></a>
@@ -45,11 +49,11 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input id="email_sender" type="email" class="validate">
+                        <input id="email_sender" type="email" class="validate" ng-model="email.sender">
                         <label for="email_sender">Your Email</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email_subject" type="text" class="validate">
+                        <input id="email_subject" type="text" class="validate" ng-model="email.subject">
                         <label for="email_subject">Subject</label>
                     </div>
                 </div>
@@ -59,7 +63,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="mdi-editor-mode-edit prefix"></i>
-                                <textarea id="email_message" class="materialize-textarea validate"></textarea>
+                                <textarea id="email_message" class="materialize-textarea validate" ng-model="email.message"></textarea>
                                 <label for="email_message">Message</label>
                             </div>
                         </div>
@@ -67,10 +71,26 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s4 offset-s8">
-                        <button class="btn waves-effect waves-light purple darken-2" type="submit" name="action">Send
+                    <div class="col s1 offset-s7" >
+                        <div class="preloader-wrapper small active" >
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle" ng-show="emailLoader"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col s4 ">
+                        <button class="btn waves-effect waves-light purple darken-2" type="submit"  ng-click="sendEmail()">Send
                             <i class="mdi-content-send right"></i>
                         </button>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col s4">
+                        <p class="purple-text text-darken-3">{{ btnClickMessage }}</p>
                     </div>
                 </div>
 

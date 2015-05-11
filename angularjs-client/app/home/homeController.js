@@ -9,12 +9,17 @@ angular.module('myApp.home', ['ngRoute'])
         });
     }])
 
-    .controller('homeController', ['$scope', '$http', function($scope, $http) {
+    .controller('homeController', ['$scope', '$http', 'BASEURL', function($scope, $http, BASEURL) {
 
         $scope.displayHome = true;
+        $scope.showProjects = false;
+        $scope.showPosts = false;
+        $scope.showPostSection = false;
 
         var onSuccess = function(response){
+            //alert("Response");
             $scope.projects = response.data;
+            $scope.showProjects = true;
         }
 
         var onFailure = function(response){
@@ -22,6 +27,6 @@ angular.module('myApp.home', ['ngRoute'])
         }
 
 
-        $http.get("http://localhost:1337/api/user/553d7d4f1e38d2e52941420c/project/3")
+        $http.get(BASEURL + "/api/user/553d7d4f1e38d2e52941420c/project/3")
             .then(onSuccess, onFailure);
     }]);

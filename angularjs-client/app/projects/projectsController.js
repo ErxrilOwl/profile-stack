@@ -9,7 +9,9 @@ angular.module('myApp.projects', ['ngRoute'])
         });
     }])
 
-    .controller('projectsController', ['$scope','$http',function($scope, $http) {
+    .controller('projectsController', ['$scope','$http', 'BASEURL', function($scope, $http, BASEURL) {
+
+        $scope.showProjects = false;
 
         var onSuccess = function(response){
             //alert("SUCCESS: " + JSON.stringify(response));
@@ -19,6 +21,7 @@ angular.module('myApp.projects', ['ngRoute'])
             //alert(JSON.stringify(formattedProjects));
             $scope.projects = response.data;
             $scope.projectsCollection = formattedProjects;
+            $scope.showProjects = true;
 
         }
 
@@ -61,6 +64,6 @@ angular.module('myApp.projects', ['ngRoute'])
             }
         }
 
-        $http.get("http://localhost:1337/api/project")
+        $http.get(BASEURL + "/api/project")
             .then(onSuccess, onFailure);
     }]);
