@@ -3,6 +3,7 @@ Profile stack is a fully inclusive profile site built with a unique set of nodej
 the project has the following dependencies:
 
 * Sailjs
+* Sailjs Mongo Driver
 * Angularjs
 * MaterializeCSS
 
@@ -25,7 +26,7 @@ To Setup Angularjs:
 Additionaly within the `sailjs-api/config` folder you will need to create a `local.js` file as this will contain
 your configurations for your MongoDB if you are using the default pre-configured settings.
 
-````
+````javascript
 module.exports.local = {
   someMongodbServer: {
     host: "localhost",
@@ -42,3 +43,11 @@ module.exports.local = {
 ````
 Alternatively you can also put this information in the environment folders located at `sailjs-api/config/env`. Note though
 these files are not included in the .gitignore
+
+####Notes:
+ * If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
+ the `sails-mongo` driver that causes the database to be unable to be modified when sails is in production mode. To 
+ resolve this issue you need to use an older version of the `sails-mongo` driver. Version `0.10.6` has resolved this 
+ bug. You can install this version as so: 
+     1. `cd sailsjs-api`
+     2. `npm install sails-mongo@0.10.6`
