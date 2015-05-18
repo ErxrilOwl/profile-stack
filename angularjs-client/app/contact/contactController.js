@@ -30,7 +30,7 @@ angular.module('myApp.contact', ['ngRoute'])
             //alert(JSON.stringify($scope.email));
             $scope.emailLoader  =true;
             var data = $scope.email;
-            $http.post(BASEURL + "api/mail", data)
+            $http.post(BASEURL + "/api/mail", data)
                 .then(onSuccess, onFailure);
         }
     }]);

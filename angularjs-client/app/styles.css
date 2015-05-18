@@ -76,6 +76,19 @@ a {
   border-bottom: 1px solid #6a1b9a;
   box-shadow: 0 1px 0 0 #6a1b9a;
 }
+/* valid color */
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #ab47bc;
+  box-shadow: 0 1px 0 0 #ab47bc;
+}
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #ab47bc;
+  box-shadow: 0 1px 0 0 #ab47bc;
+}
+#email_message.valid {
+  border-bottom: 1px solid #ab47bc;
+  box-shadow: 0 1px 0 0 #ab47bc;
+}
 
 /* icon prefix focus color */
 .input-field .prefix.active {
@@ -83,3 +96,13 @@ a {
 }
 
 /* -- End Form CSS Overrides -- */
+
+.click-box{
+  border: white 2px solid;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.click-box:hover{
+  border: white 3px solid;
+}

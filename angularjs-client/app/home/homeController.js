@@ -27,6 +27,6 @@ angular.module('myApp.home', ['ngRoute'])
         }
 
 
-        $http.get(BASEURL + "/api/user/553d7d4f1e38d2e52941420c/project/3")
+        $http.get(BASEURL + "/api/user/55562d2759fcf0fa0d56dba5/project/3")
             .then(onSuccess, onFailure);
     }]);
