@@ -19,8 +19,6 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
 
-var constants = require('../../CONSTANTS');
-
 module.exports.connections = {
 
 
@@ -61,11 +59,11 @@ module.exports.connections = {
   ***************************************************************************/
   someMongodbServer: {
     adapter: 'sails-mongo',
-    host: constants.host,
-    port: constants.port
-    // user: 'username',
-    // password: 'password',
-    // database: 'your_mongo_db_name_here'
+    /*host: sail.config.local.host,
+    port: sails.config.local.port,
+    user: sails.config.local.user,
+    password: sails.config.local.password,
+    database: sails.config.local.database*/
   },
 
   /***************************************************************************

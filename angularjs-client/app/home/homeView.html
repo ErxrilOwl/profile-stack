@@ -1,0 +1,107 @@
+<div class="container">
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="col s12">
+
+            <div class="card-panel">
+                <p>
+                    Hello and welcome my site. I am a computer programmer who has just graduated from the British
+                    Columbia Institute of Technology (BCIT) from the Computer Systems Technology Diploma Program in the
+                    Web and Mobile option.
+                </p>
+                <p>
+                    I am an avid and excited developer looking for opportunities to explore and expand my knowledge and
+                    experience working with code and developing software. To see my collection of favourite projects,
+                    see the project page. <!--For any tips an tricks I have found along the way in my development, checkout
+                    my blog page.-->
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+
+    <h4>Recent Projects</h4>
+
+    <div class="progress animate-show" ng-show="!showProjects">
+        <div class="indeterminate purple darken-1"></div>
+    </div>
+
+    <div class="row animate-show" ng-show="showProjects">
+        <div ng-repeat="project in projects">
+            <div class="col m12 l4">
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ project.imgurl }}">
+
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title" style="color:black">{{ project.title }}</span>
+                        <p>{{ project.description[0] | limitTo: 150 }}...<a href="#/projects" class="visible-link">more</a></p>
+                    </div>
+                    <div class="card-action" >
+                        <div ng-repeat="link in project.links">
+                            <a class="purple-text darken-3" href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h4 ng-show="showPostSection">Recent Posts</h4>
+
+    <div class="progress animate-show" ng-show="!showPosts && showPostSection">
+        <div class="indeterminate purple darken-3"></div>
+    </div>
+
+    <div class="row animate-show" ng-show="showPosts && showPostSection">
+        <ul class="collection">
+            <a href="#!"><li class="collection-item avatar">
+                <img src="images/yuna.jpg" alt="" class="circle">
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
+            </li></a>
+            <a href="#!"><li class="collection-item avatar">
+                <i class="mdi-file-folder circle"></i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
+            </li></a>
+            <a href="#!"><li class="collection-item avatar">
+                <i class="mdi-action-assessment circle green"></i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
+            </li></a>
+            <a href="#!"><li class="collection-item avatar">
+                <i class="mdi-av-play-arrow circle red"></i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
+            </li></a>
+        </ul>
+    </div>
+
+
+
+</div>

@@ -1,5 +1,5 @@
 logs/*
-!.gitkeep
+!angularjs-client/node_modules/http-server/node_modules/portfinder/test/fixtures/.gitkeep
 node_modules/
 bower_components/
 tmp
