@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -46,4 +46,16 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'post /api/user': 'UserController.createUser',
+  'get /api/user' : 'UserController.getAllUsers',
+  'get /api/user/:userid' : 'UserController.getUser',
+  'get /api/user/:userid/project' : 'UserController.getUserProjects',
+  'get /api/user/:userid/project/:limit' : 'UserController.getRecentProjects',
+  'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
+
+  'post /api/project' : 'ProjectController.createProject',
+  'get /api/project' : 'ProjectController.getAllProjects',
+  'get /api/project/:projectid' : 'ProjectController.getProject',
+
+  'post /api/mail' : 'EmailController.sendEmail'
 };
