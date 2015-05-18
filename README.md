@@ -22,15 +22,23 @@ To Setup Angularjs:
  3. (possibly) bower install
  4. bower install materialize
 
- Additionaly, you will need to create a `CONSTANTS.js` file to store database data needed by the sailjs-api project. This
- file is places at the project root outside of both the angularjs-client and sailjs-api folders. This file may be used
- in angular at some point or be used in other added projects to come. Within the `CONSTANTS.js` file enter the following
- information:
+Additionaly within the `sailjs-api/config` folder you will need to create a `local.js` file as this will contain
+your configurations for your MongoDB if you are using the default pre-configured settings.
 
- ````javascript
- exports.username = "<db-username>";
- exports.password = "<db-password>";
- exports.db = "<db-name>";
- exports.host = "<db-host>";
- exports.port = <db-host-port>;
- ````
+````
+module.exports.local = {
+  someMongodbServer: {
+    host: "localhost",
+    port: 27017,
+    user: "",
+    password: "",
+    database: "PROFILE"
+  },
+  sendgrid: {
+    apikey: "<your sendgrid api key>",
+    toemail: "<email your emails will be sent to on the contact page>"
+  }
+}
+````
+Alternatively you can also put this information in the environment folders located at `sailjs-api/config/env`. Note though
+these files are not included in the .gitignore
