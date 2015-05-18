@@ -20,6 +20,10 @@ module.exports = {
    models: {
      connection: 'someMongodbServer',
     migrate: 'safe'
-   }
+   },
+
+  cors: {
+    origin: '*'
+  }
 
 };
