@@ -24,25 +24,73 @@ To Setup Angularjs:
  4. bower install materialize
 
 Additionaly within the `sailjs-api/config` folder you will need to create a `local.js` file as this will contain
-your configurations for your MongoDB if you are using the default pre-configured settings.
+your configurations for sendgrid.
 
 ````javascript
 module.exports.local = {
-  someMongodbServer: {
-    host: "localhost",
-    port: 27017,
-    user: "",
-    password: "",
-    database: "PROFILE"
-  },
   sendgrid: {
     apikey: "<your sendgrid api key>",
     toemail: "<email your emails will be sent to on the contact page>"
   }
 }
 ````
-Alternatively you can also put this information in the environment folders located at `sailjs-api/config/env`. Note though
-these files are not included in the .gitignore
+You will also need to create and setup your `development.js` and `production,js` environment files. These will go
+ into the `config/env` folder you will have to create <br>
+development.js
+````javascript
+/** config/env/development.js **/
+    module.exports = {
+        models: {
+            connection: 'localMongoDBServer',
+            migrate: 'safe'
+          },
+          connections: {
+            localMongoDBServer: {
+              adapter: 'sails-mongo',
+              host: 'localhost',
+              port: 27017,
+              user: '<your development db username>',
+              password: '<your development db password>',
+              database: '<your development db name>'
+            }
+          },
+          cors: {
+            origin: '*'
+          }
+    };
+````
+production.js <br>
+
+````javascript
+
+    module.exports = {
+        models: {
+            connection: 'localMongoDBServer',
+            migrate: 'safe'
+          },
+          connections: {
+            localMongoDBServer: {
+              adapter: 'sails-mongo',
+              host: '<your production db host>',
+              port: '<your production db port>',
+              user: '<your production db username>',
+              password: '<your production db password>',
+              database: '<your production db name'
+            }
+          },
+          //set the production environment port
+          port: 8050,
+        
+          //set logging level. usualy silent for production
+          log: {
+            level: 'silent'
+          },
+          cors: {
+            origin: '<your domain>'
+          }
+    };
+````
+
 
 ####Notes:
  * If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
