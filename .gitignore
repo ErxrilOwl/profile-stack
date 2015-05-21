@@ -8,6 +8,7 @@ tmp
 
 /sailjs-api/node_modules/
 /sailjs-api/config/local.js
+/sailjs-api/config/env/*
 *.log
 *.out
 *.pid

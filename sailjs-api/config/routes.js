@@ -57,5 +57,10 @@ module.exports.routes = {
   'get /api/project' : 'ProjectController.getAllProjects',
   'get /api/project/:projectid' : 'ProjectController.getProject',
 
-  'post /api/mail' : 'EmailController.sendEmail'
+  'post /api/mail' : 'EmailController.sendEmail',
+
+  'post /api/link' : 'LinkController.createLink',
+  'get /api/link' : 'LinkController.getAllLinks',
+  'get /api/link/:linkid' : 'LinkController.getLink'
+
 };
