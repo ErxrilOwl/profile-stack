@@ -14,3 +14,5 @@ tmp
 *.pid
 npm-debug.log
 CONSTANTS.js
+
+/ghost-0.6.4/node_modules
