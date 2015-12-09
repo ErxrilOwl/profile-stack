@@ -3,8 +3,8 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
+//  'myApp.view1',
+//  'myApp.view2',
   'myApp.home',
   'myApp.contact',
   'myApp.projects',
@@ -18,3 +18,5 @@ config(['$routeProvider', function($routeProvider) {
 //constant('BASEURL', 'http://45.55.237.98:8050')
 //constant('BASEURL', 'https://bensoer.com:8050')
 constant('BASEURL', 'http://localhost:1337')
+
+.value('condensedMode', false)
