@@ -90,7 +90,9 @@ production.js <br>
           }
     };
 ````
-
+To Setup Ghostjs
+ 1. Create a config.js
+ 2. Copy the contents from config.example.js and adjust it appropriatly
 
 ####Notes:
  * If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with

@@ -9,24 +9,33 @@ angular.module('myApp.projects', ['ngRoute'])
         });
     }])
 
-    .controller('projectsController', ['$scope','$http', 'BASEURL', function($scope, $http, BASEURL) {
+    .controller('projectsController', ['$scope','$http', '$log', 'BASEURL', 'condensedMode', function($scope, $http, $log, BASEURL, condensedMode) {
 
         $scope.showProjects = false;
+        $scope.showProjectsLoader = true;
 
         var onSuccess = function(response){
-            //alert("SUCCESS: " + JSON.stringify(response));
             var data = response.data;
-            //alert(JSON.stringify(data));
             var formattedProjects = formatProjects(data);
-            //alert(JSON.stringify(formattedProjects));
+
             $scope.projects = response.data;
             $scope.projectsCollection = formattedProjects;
             $scope.showProjects = true;
 
+            condensedMode = false;
+            $scope.showProjectsLoader = false;
+
         }
 
         var onFailure = function(response){
-            alert("ERROR: " + JSON.stringify(response));
+            $log.error("Projects - There was an error fetching projects");
+            $log.error(response);
+
+            $scope.showProjectsLoader = false;
+
+            condensedMode = true;
+
+
         }
 
         var formatProjects = function(projects){
@@ -64,6 +73,7 @@ angular.module('myApp.projects', ['ngRoute'])
             }
         }
 
+        //need if for whether we have an API or not
         $http.get(BASEURL + "/api/project")
             .then(onSuccess, onFailure);
     }]);
