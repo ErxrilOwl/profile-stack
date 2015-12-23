@@ -10,13 +10,19 @@ angular.module('myApp', [
   'myApp.projects',
   'myApp.blog',
   'myApp.about',
-  'myApp.version'
+  'myApp.version',
+  'myApp.menu'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 }]).
 //constant('BASEURL', 'http://45.55.237.98:8050')
-//constant('BASEURL', 'https://bensoer.com:8050')
-constant('BASEURL', 'http://localhost:1337')
+//constant('BASEURL', 'http://bensoer.com:8050').
+constant('BASEURL', 'http://localhost:1337').
+constant('USERID', '1')
 
-.value('condensedMode', false)
+.value('CondensedMode', false).
+
+run(function($rootScope) {
+  $rootScope.CondensedMode = false;
+});

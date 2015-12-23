@@ -1,8 +1,8 @@
 <div class="container">
     <div class="section">
         <h4>Get In Touch</h4>
-        <p>Come find me on Twitter, Github, LinkedIn and Google+. If you have any questions, send an email to me below
-            and I'll message you back within the next couple days. Resumes and references are available upon request. </p>
+        <p>Come find me on Twitter, Github, LinkedIn and Google+. <span ng-show="!CondensedMode">If you have any questions, send an email to me below
+            and I'll message you back within the next couple days.</span> Resumes and references are available upon request. </p>
     </div>
 
     <div class="row">
@@ -13,43 +13,49 @@
                     <!--<div class="col s2">
                         <img src="images/yuna.jpg" alt="" class="circle responsive-img">
                     </div>-->
-                    <div class="col s12 m6">
-                        <div class="col m2 l1">
+                    <div class="col s12 m6 offset-m1 offset-l1">
+                        <!--<div class="col m2 l1">
 
-                        </div>
-                        <div class="col m10 l5">
-                            <span class="black-text">
-                                <p>Ben Soer</p><p><i class="tiny mdi-hardware-phone-android">604.842.2274</i></p><p><i class="tiny mdi-communication-email">ben@soernet.ca</i></p>
+                        </div>-->
+                        <!--<div class="col m10 l5">-->
+                            <span class="black-text center-on-small-only">
+                                <div class="row">
+                                    Ben Soer
+                                </div>
+                                <div class="row">
+                                    <i class="tiny mdi-hardware-phone-android">604.842.2274</i>
+                                </div>
+                                <div class="row">
+                                    <i class="tiny mdi-communication-email">ben@soernet.ca</i>
+                                </div>
                             </span>
-                        </div>
+                        <!--</div>-->
                     </div>
 
-                    <div class="col s12 m6">
-                        <div class="col s3 m2">
-                            <a style="color:black;" href="https://github.com/bensoer" target="_blank"><li class="fa-3x fa fa-github"></li></a>
+                    <div class="col m6 hide-on-small-and-down">
+                        <div class="row">
+                            <div class="col m3">
+                                <a style="color:black;" href="https://github.com/bensoer" target="_blank"><li class="fa-3x fa fa-github"></li></a>
+                            </div>
+                            <div class="col m3">
+                                <a style="color:black;" href="https://ca.linkedin.com/pub/ben-soer/b0/541/24a" target="_blank"><li class="fa-3x fa fa-linkedin"></li></a>
+                            </div>
+                            <div class="col m3">
+                                <a style="color:black;" href="https://plus.google.com/105397548157818804415/about" target="_blank"><li class="fa-3x fa fa-google-plus"></li></a>
+                            </div>
+                            <div class="col m3">
+                                <a style="color:black;" href="https://twitter.com/BensPlaylist" target="_blank"><li class="fa-3x fa fa-twitter"></li></a>
+                            </div>
                         </div>
-                        <div class="col s3 m2">
-                            <a style="color:black;" href="https://ca.linkedin.com/pub/ben-soer/b0/541/24a" target="_blank"><li class="fa-3x fa fa-linkedin"></li></a>
-                        </div>
-                        <div class="col s3 m2">
-                            <a style="color:black;" href="https://plus.google.com/105397548157818804415/about" target="_blank"><li class="fa-3x fa fa-google-plus"></li></a>
-                        </div>
-                        <div class="col s3 m2">
-                            <a style="color:black;" href="https://twitter.com/BensPlaylist" target="_blank"><li class="fa-3x fa fa-twitter"></li></a>
-                        </div>
+
                     </div>
-
-
-
-
                 </div>
-
             </div>
         </div>
 
     </div>
 
-    <div class="row">
+    <div class="row" ng-show="!CondensedMode">
         <div class="card-panel">
             <form class="col s12">
                 <div class="row">

@@ -9,7 +9,8 @@ angular.module('myApp.contact', ['ngRoute'])
         });
     }])
 
-    .controller('contactController', ['$scope', '$http', 'BASEURL', function($scope, $http, BASEURL) {
+    .controller('contactController', ['$scope', '$rootScope', '$http', 'BASEURL',
+        function($scope, $rootScope, $http, BASEURL) {
 
         $scope.email = {};
         $scope.btnClickMessage = "";

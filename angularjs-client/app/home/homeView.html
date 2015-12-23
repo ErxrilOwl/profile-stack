@@ -26,13 +26,13 @@
     <div class="divider"></div>
 
 
-    <h4>Recent Projects</h4>
+    <h4 ng-show="showrProjectsSection">Recent Projects</h4>
 
     <div class="progress animate-show" ng-show="showProjectsLoader">
         <div class="indeterminate purple darken-1"></div>
     </div>
 
-    <div class="row animate-show" ng-show="showProjects">
+    <div class="row animate-show" ng-show="showProjects && showProjectsSection">
         <div ng-repeat="project in projects">
             <div class="col m12 l4">
 

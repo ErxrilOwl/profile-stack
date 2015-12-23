@@ -2,6 +2,13 @@
     <div class="progress animate-show" ng-show="showProjectsLoader">
         <div class="indeterminate purple darken-1"></div>
     </div>
+    <div ng-show="showErrorMessage">
+        <p>
+            There Was An Error Fetching The Projects Content. The Server May Be Experiencing Unexpected Difficulties.
+
+            Click <a href="/" class="visible-link">here</a> to go back to the home page
+        </p>
+    </div>
 
     <div ng-show="showProjects">
         <div ng-repeat="projectRow in projectsCollection">

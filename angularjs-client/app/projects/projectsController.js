@@ -9,10 +9,13 @@ angular.module('myApp.projects', ['ngRoute'])
         });
     }])
 
-    .controller('projectsController', ['$scope','$http', '$log', 'BASEURL', 'condensedMode', function($scope, $http, $log, BASEURL, condensedMode) {
+    .controller('projectsController', ['$scope','$rootScope', '$http', '$log', 'BASEURL',
+        function($scope, $rootScope, $http, $log, BASEURL) {
 
         $scope.showProjects = false;
         $scope.showProjectsLoader = true;
+
+        $scope.showErrorMessage = false;
 
         var onSuccess = function(response){
             var data = response.data;
@@ -22,7 +25,7 @@ angular.module('myApp.projects', ['ngRoute'])
             $scope.projectsCollection = formattedProjects;
             $scope.showProjects = true;
 
-            condensedMode = false;
+            $rootScope.CondensedMode = false;
             $scope.showProjectsLoader = false;
 
         }
@@ -32,8 +35,9 @@ angular.module('myApp.projects', ['ngRoute'])
             $log.error(response);
 
             $scope.showProjectsLoader = false;
+            $scope.showErrorMessage = true;
 
-            condensedMode = true;
+            $rootScope.CondensedMode = true;
 
 
         }

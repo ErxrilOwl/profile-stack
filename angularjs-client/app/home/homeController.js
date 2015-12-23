@@ -9,10 +9,14 @@ angular.module('myApp.home', ['ngRoute'])
         });
     }])
 
-    .controller('homeController', ['$scope', '$http', '$log', 'BASEURL', function($scope, $http, $log, BASEURL) {
+    .controller('homeController', ['$scope', '$rootScope', '$http', '$log', 'BASEURL', 'USERID',
+        function($scope, $rootScope, $http, $log, BASEURL, USERID) {
+
+            console.log("Home - Initializing");
 
         $scope.displayHome = true;
         $scope.showProjects = false;
+        $scope.showProjectsSection = true;
         $scope.showProjectsLoader = true;
         $scope.showPosts = false;
         $scope.showPostSection = false;
@@ -22,6 +26,8 @@ angular.module('myApp.home', ['ngRoute'])
             $scope.projects = response.data;
             $scope.showProjectsLoader = false;
             $scope.showProjects = true;
+
+            $rootScope.CondensedMode = false;
         }
 
         var onFailure = function(response){
@@ -30,10 +36,14 @@ angular.module('myApp.home', ['ngRoute'])
 
             //collapse logic
             $scope.showProjectsLoader = false;
+            $rootScope.CondensedMode = true;
+
+            $scope.showProjects = false;
+            $scope.showProjectsSection = false;
 
         }
 
 
-        $http.get(BASEURL + "/api/user/1/project/3")
+        $http.get(BASEURL + "/api/user/" + USERID + "/project/3")
             .then(onSuccess, onFailure);
     }]);
