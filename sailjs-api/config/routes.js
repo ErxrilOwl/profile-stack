@@ -51,7 +51,7 @@ module.exports.routes = {
   'get /api/user/:userid' : 'UserController.getUser',
   'get /api/user/:userid/project' : 'UserController.getUserProjects',
   'get /api/user/:userid/project/:limit' : 'UserController.getRecentProjects',
-  'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
+  //'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
 
   'post /api/project' : 'ProjectController.createProject',
   'get /api/project' : 'ProjectController.getAllProjects',
