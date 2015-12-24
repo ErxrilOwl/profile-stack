@@ -66,6 +66,8 @@ module.exports.routes = {
 
   'post /api/link' : 'LinkController.createLink',
   'get /api/link' : 'LinkController.getAllLinks',
-  'get /api/link/:linkid' : 'LinkController.getLink'
+  'get /api/link/:linkid' : 'LinkController.getLink',
+
+  'get /ping' : 'PingController.ping'
 
 };
