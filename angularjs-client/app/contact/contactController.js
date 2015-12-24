@@ -16,6 +16,18 @@ angular.module('myApp.contact', ['ngRoute'])
         $scope.btnClickMessage = "";
         $scope.emailLoader = false;
 
+        //if CondensedMode is enabled. Check the API now in case its back
+        if($rootScope.CondensedMode){
+            console.log("Contact - Condensed Mode Is Enabled. Checking If API Status Has Changed");
+            $http.get(BASEURL + "/ping").then(function(response){
+                var results = response.data.results;
+                if(results.user.pingSuccess && results.project.pingSuccess && results.link.pingSuccess){
+                    console.log("Contact - API Status Has Changed. Disabling Condensed Mode");
+                    $rootScope.CondensedMode = false;
+                }
+            });
+        }
+
         var onSuccess = function(response){
             //alert("SUCCESS: " + JSON.stringify(response));
             $scope.emailLoader = false;

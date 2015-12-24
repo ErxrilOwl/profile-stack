@@ -17,19 +17,22 @@ module.exports = {
     var userTest = {
       userPinged : false,
       userMessage : "",
-      userStack : null
+      userStack : null,
+      pingSuccess: false
     }
 
     var projectTest = {
       projectPinged : false,
       projectMessage : "",
-      projectStack : null
+      projectStack : null,
+      pingSuccess: false
     }
 
     var linkTest = {
       linkPinged : false,
       linkMessage : "",
-      linkStack : null
+      linkStack : null,
+      pingSuccess: false
     }
 
 
@@ -37,8 +40,10 @@ module.exports = {
       if(err){
         userTest.userMessage = "Error Pinging User Table"
         userTest.userStack = err.stack;
+        userTest.pingSuccess = false;
       }else{
         userTest.userMessage = "Pinging of User Table Successful";
+        userTest.pingSuccess = true;
       }
       userTest.userPinged = true;
       sendResponse();
@@ -47,8 +52,10 @@ module.exports = {
       if(err){
         projectTest.projectMessage = "Error Pinging Project Table"
         projectTest.projectStack = err.stack;
+        projectTest.pingSuccess = false;
       }else{
         projectTest.projectMessage = "Pinging of Project Table Successful";
+        projectTest.pingSuccess = true;
       }
       projectTest.projectPinged = true;
       sendResponse();
@@ -57,8 +64,10 @@ module.exports = {
       if(err){
         linkTest.linkMessage = "Error Pinging Link Table"
         linkTest.linkStack = err.stack;
+        linkTest.pingSuccess = false;
       }else{
         linkTest.linkMessage = "Pinging of Link Table Successful";
+        linkTest.pingSuccess = true;
       }
       linkTest.linkPinged = true;
       sendResponse();
