@@ -1,6 +1,4 @@
 
-//var constants = require('../../../CONSTANTS');
-
 module.exports = {
     sendEmail: function(sender,subject,message, callback){
         var sendgrid = require('sendgrid')(sails.config.local.sendgrid.apikey);

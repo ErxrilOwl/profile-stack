@@ -26,19 +26,19 @@
     <div class="divider"></div>
 
 
-    <h4>Recent Projects</h4>
+    <h4 ng-show="showrProjectsSection">Recent Projects</h4>
 
-    <div class="progress animate-show" ng-show="!showProjects">
+    <div class="progress animate-show" ng-show="showProjectsLoader">
         <div class="indeterminate purple darken-1"></div>
     </div>
 
-    <div class="row animate-show" ng-show="showProjects">
+    <div class="row animate-show" ng-show="showProjects && showProjectsSection">
         <div ng-repeat="project in projects">
             <div class="col m12 l4">
 
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{ project.imgurl }}">
+                        <img ng-src="{{project.imgurl}}">
 
                     </div>
                     <div class="card-content">
@@ -68,7 +68,7 @@
     <div class="row animate-show" ng-show="showPosts && showPostSection">
         <ul class="collection">
             <a href="#!"><li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
+                <!--<img src="images/yuna.jpg" alt="" class="circle">-->
                 <span class="title">Title</span>
                 <p>First Line <br>
                     Second Line

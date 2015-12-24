@@ -8,8 +8,12 @@ tmp
 
 /sailjs-api/node_modules/
 /sailjs-api/config/local.js
+/sailjs-api/config/env/*
 *.log
 *.out
 *.pid
 npm-debug.log
 CONSTANTS.js
+
+/ghost-0.6.4/node_modules
+/ghost-0.6.4/config.js

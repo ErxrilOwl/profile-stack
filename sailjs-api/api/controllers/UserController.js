@@ -11,6 +11,8 @@ module.exports = {
     //var jsonString = JSON.stringify(req.body);
     User.create(req.body).exec(function(err, user){
       if(err){
+        sails.log.error("UserController:create - Error Creating User");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json(user)
@@ -21,6 +23,8 @@ module.exports = {
   getAllUsers: function(req, res){
     User.find({}).exec(function(err, results){
       if(err){
+        sails.log.error("UserController:getAllUsers - Error Getting All Users");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json(results);
@@ -30,6 +34,8 @@ module.exports = {
   getUser: function(req, res){
     User.findOne({'id' : req.params.userid}).exec(function(err, user){
       if(err){
+        sails.log.error("UserController:getUser - Error Getting User");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json(user);
@@ -39,6 +45,8 @@ module.exports = {
   getUserProjects: function(req, res){
     User.findOne({'id' : req.params.userid}).populate('projects').exec(function(err, results){
       if(err){
+        sails.log.error("UserController:getUserProjects - Error Getting User Projects");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json({ projects: results.projects});
@@ -48,6 +56,8 @@ module.exports = {
   getUserBlogs: function(req, res){
     User.findOne({'id' : req.params.userid}).populate('blogs').exec(function(err, results){
       if(err){
+        sails.log.error("UserController:getUserBlogs - Error Getting User Blogs");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json({ blogs: results.blogs});
@@ -57,6 +67,8 @@ module.exports = {
   getRecentProjects: function(req, res){
     Project.find({where: { user: req.params.userid}, limit: req.params.limit, sort: 'startdate DESC'}).populate('links').exec(function(err, results){
       if(err){
+        sails.log.error("UserController:getUserProjects - Error Getting Recent Projects");
+        sails.log.error(err);
         return res.send(err);
       }else{
         return res.json(results);
