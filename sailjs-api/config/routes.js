@@ -51,11 +51,23 @@ module.exports.routes = {
   'get /api/user/:userid' : 'UserController.getUser',
   'get /api/user/:userid/project' : 'UserController.getUserProjects',
   'get /api/user/:userid/project/:limit' : 'UserController.getRecentProjects',
-  'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
+  //'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
 
   'post /api/project' : 'ProjectController.createProject',
   'get /api/project' : 'ProjectController.getAllProjects',
   'get /api/project/:projectid' : 'ProjectController.getProject',
 
-  'post /api/mail' : 'EmailController.sendEmail'
+  'post /api/mail' : {
+    target: 'EmailController.sendEmail',
+    cors: {
+      methods: 'POST'
+    }
+  },
+
+  'post /api/link' : 'LinkController.createLink',
+  'get /api/link' : 'LinkController.getAllLinks',
+  'get /api/link/:linkid' : 'LinkController.getLink',
+
+  'get /ping' : 'PingController.ping'
+
 };

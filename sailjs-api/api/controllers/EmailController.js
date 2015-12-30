@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+
 	sendEmail:function(req, res){
     if(req.body.hasOwnProperty('sender') && req.body.hasOwnProperty('subject') && req.body.hasOwnProperty('message')){
       SendGridMailService.sendEmail(req.body.sender, req.body.subject, req.body.message, function(result){

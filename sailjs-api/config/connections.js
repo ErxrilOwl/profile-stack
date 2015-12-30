@@ -42,11 +42,11 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   someMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
+    adapter: 'sails-mysql'
+    /*host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
     user: 'YOUR_MYSQL_USER',
     password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+    database: 'YOUR_MYSQL_DB'*/
   },
 
   /***************************************************************************
@@ -58,7 +58,7 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   someMongodbServer: {
-    adapter: 'sails-mongo',
+    adapter: 'sails-mongo'
     /*host: sail.config.local.host,
     port: sails.config.local.port,
     user: sails.config.local.user,
@@ -89,5 +89,6 @@ module.exports.connections = {
   * More adapters: https://github.com/balderdashy/sails                      *
   *                                                                          *
   ***************************************************************************/
+
 
 };
