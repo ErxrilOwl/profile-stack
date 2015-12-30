@@ -3,7 +3,7 @@ Profile stack is a fully inclusive profile site built with a unique set of nodej
 the project has the following dependencies:
 
 * Sailjs
-* Sailjs Mongo Driver
+* Sailjs MySQL Driver
 * Angularjs
 * MaterializeCSS
 
@@ -13,8 +13,8 @@ To Setup Sailjs:
  1. cd to sailjs-api
  2. npm install sails -g
  3. npm install
- 4. You will also have to install mongoDB if you want to use the default setup. See mongoDB docs on howto
- 5. If installing mongoDB, install the mongoDB adapter: npm install sails-mongo
+ 4. You will also have to have MySQL installed on your system. See appropriate MySQL documentation on installing
+ 5. You may have to also install the MySQL Sailjs driver: 'npm install sails-mysql'
 
 
 To Setup Angularjs:
@@ -41,22 +41,23 @@ development.js
 /** config/env/development.js **/
     module.exports = {
         models: {
-            connection: 'localMongoDBServer',
+            connection: 'mysqlDBServer',
             migrate: 'safe'
           },
           connections: {
-            localMongoDBServer: {
-              adapter: 'sails-mongo',
-              host: 'localhost',
-              port: 27017,
-              user: '<your development db username>',
-              password: '<your development db password>',
-              database: '<your development db name>'
-            }
+            mysqlDBServer : {
+            adapter: "sails-mysql",
+            host: '<host url>',
+            user: '<mysql username>',
+            password: '<mysql password>',
+            database: '<mysql database>'
           },
           cors: {
             origin: '*'
-          }
+          },
+          log: {
+            level: 'silly'
+          },
     };
 ````
 production.js <br>
@@ -65,25 +66,23 @@ production.js <br>
 
     module.exports = {
         models: {
-            connection: 'localMongoDBServer',
+            connection: 'mysqlDBServer',
             migrate: 'safe'
           },
           connections: {
-            localMongoDBServer: {
-              adapter: 'sails-mongo',
-              host: '<your production db host>',
-              port: '<your production db port>',
-              user: '<your production db username>',
-              password: '<your production db password>',
-              database: '<your production db name'
-            }
+             mysqlDBServer : {
+                adapter: "sails-mysql",
+                host: '<host url>',
+                user: '<mysql username>',
+                password: '<mysql password>',
+                database: '<mysql database>'
           },
           //set the production environment port
           port: 8050,
         
           //set logging level. usualy silent for production
           log: {
-            level: 'silent'
+            level: 'verbose'
           },
           cors: {
             origin: '<your domain>'
@@ -95,7 +94,7 @@ To Setup Ghostjs
  2. Copy the contents from config.example.js and adjust it appropriatly
 
 ####Notes:
- * If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
+ * -DEPRECATED- If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
  the `sails-mongo` driver that causes the database to be unable to be modified when sails is in production mode. To 
  resolve this issue you need to use an older version of the `sails-mongo` driver. Version `0.10.6` has resolved this 
  bug. You can install this version as so: 
