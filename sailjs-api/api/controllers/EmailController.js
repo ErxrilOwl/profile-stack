@@ -20,8 +20,6 @@ module.exports = {
     }else{
       res.badRequest({ "code": 400, "message" : "Missing Body Attribute" });
     }
-
-
   }
 };
 
