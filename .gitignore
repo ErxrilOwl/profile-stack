@@ -15,5 +15,7 @@ tmp
 npm-debug.log
 CONSTANTS.js
 
-/ghost-0.6.4/node_modules
-/ghost-0.6.4/config.js
+/ghost-*/node_modules
+/ghost-*/config.js
+/ghost-latest.zip
+ghost-temp

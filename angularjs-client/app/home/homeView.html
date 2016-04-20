@@ -1,3 +1,7 @@
+
+<script type="text/javascript">
+
+</script>
 <div class="container">
 
     <div class="divider"></div>
@@ -26,14 +30,14 @@
     <div class="divider"></div>
 
 
-    <h4 ng-show="showrProjectsSection">Recent Projects</h4>
+    <h4 ng-show="projects.showProjectsSection">Recent Projects</h4>
 
-    <div class="progress animate-show" ng-show="showProjectsLoader">
+    <div class="progress animate-show" ng-show="projects.showProjectsLoader">
         <div class="indeterminate purple darken-1"></div>
     </div>
 
-    <div class="row animate-show" ng-show="showProjects && showProjectsSection">
-        <div ng-repeat="project in projects">
+    <div class="row animate-show" ng-show="projects.showProjects && projects.showProjectsSection">
+        <div ng-repeat="project in projects.data">
             <div class="col m12 l4">
 
                 <div class="card">
@@ -59,13 +63,13 @@
 
     <div class="divider"></div>
 
-    <h4 ng-show="showPostSection">Recent Posts</h4>
+    <h4 ng-show="posts.showPostsSection">Recent Posts</h4>
 
-    <div class="progress animate-show" ng-show="!showPosts && showPostSection">
+    <div class="progress animate-show" ng-show="posts.showPostsLoader">
         <div class="indeterminate purple darken-3"></div>
     </div>
 
-    <div class="row animate-show" ng-show="showPosts && showPostSection">
+    <div class="row animate-show" ng-show="posts.showPosts && posts.showPostsSection">
         <ul class="collection">
             <a href="#!"><li class="collection-item avatar">
                 <!--<img src="images/yuna.jpg" alt="" class="circle">-->

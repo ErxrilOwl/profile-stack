@@ -16,7 +16,7 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 }]).
-//constant('BASEURL', 'http://45.55.237.98:8050')
+//constant('BASEURL', 'http://45.55.237.98:8050').
 //constant('BASEURL', 'http://bensoer.com:8050').
 constant('BASEURL', 'http://localhost:1337').
 constant('USERID', '1')
