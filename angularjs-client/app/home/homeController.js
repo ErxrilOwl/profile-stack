@@ -9,20 +9,23 @@ angular.module('myApp.home', ['ngRoute'])
         });
     }])
 
-    .controller('homeController', ['$scope', '$rootScope', '$http', '$log', 'BASEURL', 'USERID',
-        function($scope, $rootScope, $http, $log, BASEURL, USERID) {
+    .controller('homeController', ['$scope', '$rootScope', '$http', '$log', 'BASEURL', 'USERID', 'GHOSTID', 'GHOSTSECRET',
+        function($scope, $rootScope, $http, $log, BASEURL, USERID, GHOSTID, GHOSTSECRET) {
 
             console.log("Home - Initializing");
 
 
             ghost.init({
-                clientId: "ghost-frontend",
-                clientSecret: "b553a3fe8571"
+                clientId: GHOSTID,
+                clientSecret: GHOSTSECRET
             });
 
-            console.log(ghost.url.api());
+            //console.log(ghost.url.api());
 
-
+            var loaded = {
+                projects: true,
+                posts: true
+            };
 
 
             $scope.projects = {
@@ -35,8 +38,8 @@ angular.module('myApp.home', ['ngRoute'])
             $scope.posts = {
                 data: null,
                 showPosts: false,
-                showPostsSection: false,
-                showPostsLoader: false
+                showPostsSection: true,
+                showPostsLoader: true
             };
 
             $scope.displayHome = true;
@@ -58,28 +61,48 @@ angular.module('myApp.home', ['ngRoute'])
 
                 //collapse logic
                 $scope.projects.showProjectsLoader = false;
-                $rootScope.CondensedMode = true;
-
                 $scope.projects.showProjects = false;
                 $scope.projects.showProjectsSection = false;
+
+
+                loaded.projects = false;
+
+                $rootScope.CondensedMode = true;
 
             }
 
             var onPostsSuccess = function(response){
+
                 console.log("SUCCESS");
                 console.log(response);
+
+                $scope.posts.data = response.data.posts;
+
+                $scope.posts.showPostsLoader = false;
+                $scope.posts.showPosts = true;
+                $scope.posts.showPostsSection = true;
             }
 
             var onPostsFailure = function(response){
-                console.log("FAILURE");
-                console.log(response);
+                $log.error("Home - Failed To Fetch Posts");
+                $log.error(response);
+
+                $scope.posts.showProjectsLoader = false;
+                $scope.posts.showProjects = false;
+                $scope.posts.showProjectsSection = false;
+
+                loaded.posts = false;
+
+                $rootScope.CondensedMode = true;
+
             }
 
 
+            //get recent projects
             $http.get(BASEURL + "/api/user/" + USERID + "/project/3")
                 .then(onProjectsSuccess, onProjectsFailure);
 
-
-            $http.get(ghost.url.api('posts', {limit:3})).then(onPostsSuccess, onPostsFailure);
+            //get recent posts
+            $http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);
 
     }]);

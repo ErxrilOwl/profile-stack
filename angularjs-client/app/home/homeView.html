@@ -11,15 +11,16 @@
 
             <div class="card-panel">
                 <p>
-                    Hello and welcome my site. I am a computer programmer who has just graduated from the British
+                    Hello and welcome my site. I am a computer programmer who has recently graduated from the British
                     Columbia Institute of Technology (BCIT) from the Computer Systems Technology Diploma Program in the
-                    Web and Mobile option.
+                    Web and Mobile option. I am now half way through my degree program at BCIT in the Network Administration
+                    and Security option.
                 </p>
                 <p>
                     I am an avid and excited developer looking for opportunities to explore and expand my knowledge and
                     experience working with code and developing software. To see my collection of favourite projects,
-                    see the project page. <!--For any tips an tricks I have found along the way in my development, checkout
-                    my blog page.-->
+                    see the project page. For any tips and tricks I have found along the way in my development, checkout
+                    my blog page.
                 </p>
 
             </div>
@@ -27,10 +28,12 @@
         </div>
     </div>
 
-    <div class="divider"></div>
 
 
-    <h4 ng-show="projects.showProjectsSection">Recent Projects</h4>
+    <div ng-show="projects.showProjectsSection">
+        <h4><i class="material-icons">power_settings_new</i>&nbsp;Recent Projects</h4>
+        <div class="divider"></div>
+    </div>
 
     <div class="progress animate-show" ng-show="projects.showProjectsLoader">
         <div class="indeterminate purple darken-1"></div>
@@ -61,49 +64,24 @@
         </div>
     </div>
 
-    <div class="divider"></div>
+    <!-- Start Posts Section -->
 
-    <h4 ng-show="posts.showPostsSection">Recent Posts</h4>
+    <div ng-show="posts.showPostsSection">
+        <h4><i class="material-icons">forum</i>&nbsp;Recent Blog Posts</h4>
+        <div class="divider"></div>
+    </div>
 
     <div class="progress animate-show" ng-show="posts.showPostsLoader">
         <div class="indeterminate purple darken-3"></div>
     </div>
 
     <div class="row animate-show" ng-show="posts.showPosts && posts.showPostsSection">
-        <ul class="collection">
-            <a href="#!"><li class="collection-item avatar">
-                <!--<img src="images/yuna.jpg" alt="" class="circle">-->
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
-            </li></a>
-            <a href="#!"><li class="collection-item avatar">
-                <i class="mdi-file-folder circle"></i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
-            </li></a>
-            <a href="#!"><li class="collection-item avatar">
-                <i class="mdi-action-assessment circle green"></i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
-            </li></a>
-            <a href="#!"><li class="collection-item avatar">
-                <i class="mdi-av-play-arrow circle red"></i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="mdi-content-send"></i></a>
-            </li></a>
-        </ul>
+        <div class="collection z-depth-1">
+            <a ng-repeat="data in posts.data" href="https://blog.bensoer.com/{{data.url}}"  target="_blank" class="collection-item">
+                <span class="card-title purple-text text-darken-3" style="font-size:large;">{{data.title}}</span>
+                <p class="grey-text text-darken-3">Posted: {{data.published_at| date:'medium'}}</p>
+            </a>
+        </div>
     </div>
 
 
