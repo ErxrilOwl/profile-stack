@@ -100,7 +100,7 @@ You will also need to create and setup your `development.js` and `production,js`
           },
     };
 ````
-<b>production.js<b> <br>
+<b>production.js</b> <br>
 
 ````javascript
 
