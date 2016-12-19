@@ -15,10 +15,10 @@ angular.module('myApp.home', ['ngRoute'])
             console.log("Home - Initializing");
 
 
-            ghost.init({
+            /*ghost.init({
                 clientId: GHOSTID,
                 clientSecret: GHOSTSECRET
-            });
+            });*/
 
             //console.log(ghost.url.api());
 
@@ -99,10 +99,10 @@ angular.module('myApp.home', ['ngRoute'])
 
 
             //get recent projects
-            $http.get(BASEURL + "/api/user/" + USERID + "/project/3")
-                .then(onProjectsSuccess, onProjectsFailure);
+            //$http.get(BASEURL + "/api/user/" + USERID + "/project/3")
+            //    .then(onProjectsSuccess, onProjectsFailure);
 
             //get recent posts
-            $http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);
+            //$http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);
 
     }]);
