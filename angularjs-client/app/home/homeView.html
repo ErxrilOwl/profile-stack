@@ -36,7 +36,7 @@
     </div>
 
     <div class="progress animate-show" ng-show="projects.showProjectsLoader">
-        <div class="indeterminate purple darken-1"></div>
+        <div class="indeterminate blue-grey darken-2"></div>
     </div>
 
     <div class="row animate-show" ng-show="projects.showProjects && projects.showProjectsSection">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="card-action" >
                         <div ng-repeat="link in project.links">
-                            <a class="purple-text darken-3" href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+                            <a class="blue-grey-text darken-2" href="{{ link.url }}" target="_blank">{{ link.name }}</a>
                         </div>
 
                     </div>
@@ -72,13 +72,13 @@
     </div>
 
     <div class="progress animate-show" ng-show="posts.showPostsLoader">
-        <div class="indeterminate purple darken-3"></div>
+        <div class="indeterminate blue-grey darken-2"></div>
     </div>
 
     <div class="row animate-show" ng-show="posts.showPosts && posts.showPostsSection">
         <div class="collection z-depth-1">
             <a ng-repeat="data in posts.data" href="https://blog.bensoer.com/{{data.url}}"  target="_blank" class="collection-item">
-                <span class="card-title purple-text text-darken-3" style="font-size:large;">{{data.title}}</span>
+                <span class="card-title blue-grey-text text-darken-2" style="font-size:large;">{{data.title}}</span>
                 <p class="grey-text text-darken-3">Posted: {{data.published_at| date:'medium'}}</p>
             </a>
         </div>
