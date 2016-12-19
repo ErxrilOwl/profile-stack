@@ -133,11 +133,11 @@ You will also need to create and setup your `development.js` and `production,js`
 ##Ghost Blog
 To Setup Ghostjs
 
-1. cd into `ghost-0.6.4to0.7.9`
+1. cd into `ghost-0.6.4to0.7.9to0.11.3`
 2. execute `npm install --production`
 3. Create a config.js
 4. Copy the contents from config.example.js and adjust it appropriatly
-5. Start ghost blog in development mode by calling `node index.js`
+5. Start ghost blog in development mode by calling `node index.js`. Calling `npm start --production` will start in production mode
 
 ####Notes:
  * -DEPRECATED- If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
