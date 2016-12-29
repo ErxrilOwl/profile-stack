@@ -15,10 +15,10 @@ angular.module('myApp.home', ['ngRoute'])
             console.log("Home - Initializing");
 
 
-            /*ghost.init({
+            ghost.init({
                 clientId: GHOSTID,
                 clientSecret: GHOSTSECRET
-            });*/
+            });
 
             //console.log(ghost.url.api());
 
@@ -46,7 +46,6 @@ angular.module('myApp.home', ['ngRoute'])
 
 
             var onProjectsSuccess = function(response){
-                //alert("Response");
                 $scope.projects.data = response.data;
                 $scope.projects.showProjectsLoader = false;
                 $scope.projects.showProjects = true;
@@ -72,10 +71,6 @@ angular.module('myApp.home', ['ngRoute'])
             }
 
             var onPostsSuccess = function(response){
-
-                console.log("SUCCESS");
-                console.log(response);
-
                 $scope.posts.data = response.data.posts;
 
                 $scope.posts.showPostsLoader = false;
@@ -103,6 +98,6 @@ angular.module('myApp.home', ['ngRoute'])
                 .then(onProjectsSuccess, onProjectsFailure);
 
             //get recent posts
-            //$http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);
+            $http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);
 
     }]);
