@@ -99,8 +99,8 @@ angular.module('myApp.home', ['ngRoute'])
 
 
             //get recent projects
-            //$http.get(BASEURL + "/api/user/" + USERID + "/project/3")
-            //    .then(onProjectsSuccess, onProjectsFailure);
+            $http.get(BASEURL + "/api/user/" + USERID + "/project/3")
+                .then(onProjectsSuccess, onProjectsFailure);
 
             //get recent posts
             //$http.get(ghost.url.api('posts', {limit:5})).then(onPostsSuccess, onPostsFailure);

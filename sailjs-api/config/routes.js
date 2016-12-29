@@ -46,14 +46,15 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'post /api/user': 'UserController.createUser',
+  //'post /api/user': 'UserController.createUser',
   'get /api/user' : 'UserController.getAllUsers',
   'get /api/user/:userid' : 'UserController.getUser',
   'get /api/user/:userid/project' : 'UserController.getUserProjects',
   'get /api/user/:userid/project/:limit' : 'UserController.getRecentProjects',
   //'get /api/user/:userid/blog' : 'UserController.getUserBlogs',
+  'get /api/user/:userid/about' : 'UserController.getUserAbouts',
 
-  'post /api/project' : 'ProjectController.createProject',
+  //'post /api/project' : 'ProjectController.createProject',
   'get /api/project' : 'ProjectController.getAllProjects',
   'get /api/project/:projectid' : 'ProjectController.getProject',
 
@@ -64,10 +65,13 @@ module.exports.routes = {
     }
   },
 
-  'post /api/link' : 'LinkController.createLink',
+  //'post /api/link' : 'LinkController.createLink',
   'get /api/link' : 'LinkController.getAllLinks',
   'get /api/link/:linkid' : 'LinkController.getLink',
 
-  'get /ping' : 'PingController.ping'
+  'get /ping' : 'PingController.ping',
+
+  'get /api/about' : 'AboutController.getAllAbouts',
+  'get /api/about/:aboutid' : 'AboutController.getAbout'
 
 };

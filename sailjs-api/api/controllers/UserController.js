@@ -64,6 +64,17 @@ module.exports = {
       }
     })
   },
+  getUserAbouts: function(req, res){
+    User.findOne({'id' : req.params.userid}).populate('about').exec(function(err, results){
+      if(err){
+        sails.log.error("UserController:getUserAbouts - Error Getting User Abouts");
+        sails.log.error(err);
+        return res.send(err);
+      }else{
+        return res.json({ about: results.about});
+      }
+    })
+  },
   getRecentProjects: function(req, res){
     Project.find({where: { user: req.params.userid}, limit: req.params.limit, sort: 'startdate DESC'}).populate('links').exec(function(err, results){
       if(err){

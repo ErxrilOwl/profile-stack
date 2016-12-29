@@ -24,10 +24,6 @@ module.exports = {
       type: 'email',
       required: true
     },
-    password: {
-      type: 'string',
-      required: true
-    },
     projects: {
       collection: 'project',
       via: 'user'
@@ -35,6 +31,10 @@ module.exports = {
     blogs: {
       collection: 'blog',
       via: 'author'
+    },
+    about: {
+      collection: 'about',
+      via: 'user'
     }
 
   }
