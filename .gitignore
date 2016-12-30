@@ -1,15 +1,17 @@
 logs/*
 !angularjs-client/node_modules/http-server/node_modules/portfinder/test/fixtures/.gitkeep
 node_modules/
-bower_components/
+
 tmp
 .DS_Store
 .idea
 angularjs-client/app/config.js
+angularjs-client/app/bower_components
 
 /sailjs-api/node_modules/
 /sailjs-api/config/local.js
 /sailjs-api/config/env/*
+/sailjs-api/assets/config.js
 *.log
 *.out
 *.pid
