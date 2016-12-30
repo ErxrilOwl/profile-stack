@@ -49,26 +49,29 @@
         </div>
     </div>
 
+
     <div class="row" ng-show="!CondensedMode">
         <div class="card-panel">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <i class="mdi-social-person prefix"></i>
+                        <i class="material-icons prefix">perm_identity</i>
                         <input id="email_sender" type="email" class="validate" ng-model="email.sender">
                         <label for="email_sender">Your Email</label>
                     </div>
                     <div class="input-field col s12 m6">
+                        <i class="material-icons prefix hide-on-med-and-up">assignment</i>
                         <input id="email_subject" type="text" class="validate" ng-model="email.subject">
                         <label for="email_subject">Subject</label>
                     </div>
+
                 </div>
 
                 <div class="row">
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <i class="mdi-editor-mode-edit prefix"></i>
+                                <i class="material-icons prefix">mode_edit</i>
                                 <textarea id="email_message" class="materialize-textarea validate" ng-model="email.message"></textarea>
                                 <label for="email_message">Message</label>
                             </div>
