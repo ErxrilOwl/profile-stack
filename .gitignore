@@ -8,10 +8,10 @@ tmp
 angularjs-client/app/config.js
 angularjs-client/app/bower_components
 
-/sailjs-api/node_modules/
-/sailjs-api/config/local.js
-/sailjs-api/config/env/*
-/sailjs-api/assets/config.js
+/sailjs-angular-stack/node_modules/
+/sailjs-angular-stack/config/local.js
+/sailjs-angular-stack/config/env/*
+/sailjs-angular-stack/assets/config.js
 *.log
 *.out
 *.pid

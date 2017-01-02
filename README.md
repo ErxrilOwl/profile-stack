@@ -12,27 +12,19 @@ Each projects dependencies have to be done within the appropriate folder as most
 
 #Setup
 
-##Angularjs
+## Sailjs / Angularjs Stack
 
-To Setup Angularjs:
- 1. cd to angularjs-client
- 2. npm install
- 3. (possibly) bower install
- 4. bower install materialize
- 5. Create the appropriate js files mentioned below
- 6. Start angularjs in development mode with 'npm start'
+1. cd to `sailjs-angular-stack
+2. cd to `assets`
+3. execute `bower install` to install bower components and dependencies
+4. within the folder create a `config.js` file with the following information:
 
- To setup angularjs you will need to create a config.js file within the `app` folder to store directory constants and
- ghost-blog credentials for connecting to the blog page
-
- The file should look something like this:
- 
 ````javascript
  (function(){
 
      var app = angular.module('myApp');
 
-     app.constant('BASEURL', 'http://<sailsjs-api-url>:<portnumber>');
+     app.constant('BASEURL', ''); //leave as empty string
      app.constant('USERID', '1'); //id of user once created in sails api
 
      app.constant('GHOSTID', "ghost-frontend");
@@ -40,8 +32,11 @@ To Setup Angularjs:
 
  }());
 ````
+This will allow the Angularjs client to search for the correct information
+in the sails API and also talk to the ghost-blog API
+
 To setup the ghost-blog with the angularjs profile site may take a number of steps depending on the version. The current
-version 0.7.9 requires DB adjustments be made in order to allow angularjs to access the ghost-blog public api. The following
+version 0.11.3 requires DB adjustments be made in order to allow angularjs to access the ghost-blog public api. The following
 links may be of use:
 
 * [http://api.ghost.org/docs/client-authentication](http://api.ghost.org/docs/client-authentication)
@@ -52,19 +47,12 @@ Basically, you will need to go into the ghost-blog database and add the domain o
 You will then need to get the secret key from the database for the ghost-frontend client and add it into the `config.js`
 file explained above.
 
-##Sailsjs
-
-To Setup Sailjs:
- 1. cd to sailjs-api
- 2. npm install sails -g
- 3. npm install
- 4. You will also have to have MySQL installed on your system. See appropriate MySQL documentation on installing
- 5. You may have to also install the MySQL Sailjs driver: 'npm install sails-mysql'
- 6. Create the appropriate js files mentioned below
- 7. Start sails in development mode with `sails lift`
-
-Additionaly within the `sailjs-api/config` folder you will need to create a `local.js` file as this will contain
-your configurations for sendgrid.
+5. cd to the parent folder `sailjs-angular-stack`
+6. execute `npm install sails -g`
+7. execute `npm install`
+8. You may also have to install the MySQL Sailjs driver: `npm install sails-mysql`
+9. cd to the `sailjs-angular-stack/config` folder and create a `local.js` file. Add
+the following configuration for sendgrid:
 
 ````javascript
 module.exports.local = {
@@ -74,9 +62,12 @@ module.exports.local = {
   }
 }
 ````
-You will also need to create and setup your `development.js` and `production,js` environment files. These will go
- into the `config/env` folder you will have to create <br>
-<b>development.js</b>
+This will be used to send emails on the contact page of the site
+
+10. cd to the `env` folder within the current folder and create both a `production.js`
+and `development.js` file. Fill each file with the appropriate information listed
+below
+
 ````javascript
 /** config/env/development.js **/
     module.exports = {
@@ -100,10 +91,9 @@ You will also need to create and setup your `development.js` and `production,js`
           },
     };
 ````
-<b>production.js</b> <br>
 
 ````javascript
-
+/** config/env/production.js **/
     module.exports = {
         models: {
             connection: 'mysqlDBServer',
@@ -119,7 +109,9 @@ You will also need to create and setup your `development.js` and `production,js`
           },
           //set the production environment port
           port: 8050,
-        
+          //set which ip to listen on
+          host: 'localhost' // or 127.0.0.1 or 192.168.0.123 etc
+
           //set logging level. usualy silent for production
           log: {
             level: 'verbose'
@@ -130,6 +122,9 @@ You will also need to create and setup your `development.js` and `production,js`
     };
 ````
 
+11. cd to the `sailjs-angular-stack` directory
+12. execute `sails lift` to start the entire stack in development mode. Append `--prod` to the end to load in prod mode
+
 ##Ghost Blog
 To Setup Ghostjs
 
@@ -139,7 +134,7 @@ To Setup Ghostjs
 4. Copy the contents from config.example.js and adjust it appropriatly
 5. Start ghost blog in development mode by calling `node index.js`. Calling `npm start --production` will start in production mode
 
-####Notes:
+## Notes:
  * -DEPRECATED- If you are using MongoDB has a database and you are using mongod version 3.0.2 or higher there is a known bug with
  the `sails-mongo` driver that causes the database to be unable to be modified when sails is in production mode. To 
  resolve this issue you need to use an older version of the `sails-mongo` driver. Version `0.10.6` has resolved this 
