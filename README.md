@@ -14,7 +14,7 @@ Each projects dependencies have to be done within the appropriate folder as most
 
 ## Sailjs / Angularjs Stack
 
-1. cd to `sailjs-angular-stack
+1. cd to `sailjs-angular-stack`
 2. cd to `assets`
 3. execute `bower install` to install bower components and dependencies
 4. within the folder create a `config.js` file with the following information:
