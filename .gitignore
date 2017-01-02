@@ -1,19 +1,27 @@
 logs/*
 !angularjs-client/node_modules/http-server/node_modules/portfinder/test/fixtures/.gitkeep
 node_modules/
-bower_components/
+
 tmp
 .DS_Store
 .idea
+angularjs-client/app/config.js
+angularjs-client/app/bower_components
 
-/sailjs-api/node_modules/
-/sailjs-api/config/local.js
-/sailjs-api/config/env/*
+/sailjs-angular-stack/node_modules/
+/sailjs-angular-stack/config/local.js
+/sailjs-angular-stack/config/env/*
+/sailjs-angular-stack/assets/config.js
 *.log
 *.out
 *.pid
 npm-debug.log
 CONSTANTS.js
 
-/ghost-0.6.4/node_modules
-/ghost-0.6.4/config.js
+/ghost-*/node_modules
+/ghost-*/config.js
+/ghost-latest.zip
+ghost-temp
+staypuft-temp
+
+ghost-0.6.4to0.7.9to0.11.3/content/themes/staypuft125/partials/disqus.hbs

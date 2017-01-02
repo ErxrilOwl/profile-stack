@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="progress animate-show" ng-show="showAboutLoader">
+        <div class="indeterminate blue-grey darken-2"></div>
+    </div>
+    <div ng-show="showErrorMessage">
+        <p>
+            There Was An Error Fetching The About Content. The Server May Be Experiencing Unexpected Difficulties.
+
+            Click <a href="/" class="visible-link">here</a> to go back to the home page
+        </p>
+    </div>
+
+    <div class="row" ng-repeat="about in aboutData.about | orderBy: 'priority'">
+        <div class=" cols s12">
+            <div class="card-panel">
+                <h4>{{about.title}}</h4>
+
+                <div ng-repeat="paragraph in about.content">
+                    <p ng-bind-html="renderHTML(paragraph)"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
